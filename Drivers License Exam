@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace driverslicense
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<string> correctanswer = new List<string>() { "B","D","A","A","C","A","B","A"," C"," D"," B","C","D"," A"," D"," C","C"," B"," D"," A" };
+            List<string> answer = new List<string>();
+            List<int> incorrectansNo = new List<int>();
+            int Correctans = 0;
+            int incorrectans = 0;
+            Console.WriteLine("\n\n\n \t\tWelcome to the local driver’s license exam; Please answer the questions with A,B,C,D" +
+                "\n\t\t then it will be consider as wrong  ");
+            Console.WriteLine("\n\n");
+            for (int x = 1; x <= 20; x++)
+            {
+                Console.WriteLine("What is the answer of the Question : " + x);
+                answer.Add(Console.ReadLine());
+            }
+            for (int i = 0; i<correctanswer.Count; i++)
+            {
+                if (correctanswer.ElementAt(i)==answer.ElementAt(i))
+                {
+                    Correctans = Correctans + 1;
+                }
+                else if (correctanswer.ElementAt(i) != answer.ElementAt(i)  )
+                {
+
+                                      incorrectans = incorrectans + 1;
+                    incorrectansNo.Add(i);
+
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("\n\n\t\t.................Result.................... ");  
+            if(Correctans>=15) {
+                Console.WriteLine("\n\t\t You have successfully passed  "); 
+            }
+            else {
+                Console.WriteLine("\n\t\t You did not pass ");
+            }           
+            Console.WriteLine("\n\t\tDetails :..................................");  
+                Console.WriteLine("\n\n\t\tTotal correct answers submitted  :" + Correctans);
+                Console.WriteLine("\t\tTotal incorrect anwsers submitted  :" + incorrectans);
+            Console.WriteLine("\n\t\tList of all the incorrect Questions......... ");   
+              for (int zx=0; zx<incorrectansNo.Count;  )
+            {
+                Console.WriteLine(incorrectansNo[zx]);
+                zx++;
+            }
+            Console.Read();
+            }
+        
+    }
+}
